@@ -50,3 +50,6 @@ allowed-tools: Bash(agent-browser:*), Bash(jq:*), Bash(osascript:*) ,Read
 
 ## 微博 (Weibo)
 - `微博` ：查看[微博](./references/微博.md)发布微博时候需要的 workflow
+
+## 微信公众号
+- `微信公众号文章` ：查看[微信公众号文章](./references/微信公众号文章.md)发布公众号文章时候需要的 workflow
