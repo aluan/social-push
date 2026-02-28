@@ -32,3 +32,5 @@ temp/
 test/*
 .claude
 .agents
+
+skills-lock.json
