@@ -2,7 +2,6 @@
 name: social-push
 description: 使用 agent-browser 帮用户将内容发到社交媒体上。当用户需要发布内容、推送文章、上传文章、发帖到社交平台时使用此 skill。
 disable-model-invocation: false
-allowed-tools: Bash(agent-browser:*), Bash(jq:*), Bash(osascript:*) ,Read
 ---
 
 用户输入 $ARGUMENTS
@@ -11,9 +10,10 @@ allowed-tools: Bash(agent-browser:*), Bash(jq:*), Bash(osascript:*) ,Read
 你需要使用 bash 运行 agent-browser，并参考 references 中对应平台的 workflow，帮助用户将文章、图片上传到对应的社交平台上
 
 # Rules
-1. 使用 `agent-browser --auto-connect` 自动连接用户的浏览器
-3. 最终操作只能是**暂存草稿**，禁止自动点击"发布"按钮，由用户自行确认发布
-4. 每步操作后用 `agent-browser snapshot -i` 确认元素 ref，因为页面状态变化可能导致 ref 编号变化
+1. 使用 `agent-browser --headed --profile /tmp/agent-profile open https://xiaohongshu.com` 打开浏览器，登录对应平台账号，并保持登录状态
+2. 先用 `agent-browser snapshot` 确认页面是否弹出登录页面，如果是登录页面，提示用户登录后再继续操作
+3. 严格按照 references 中对应平台的 workflow 进行操作，确保每一步操作正确无误
+<!-- 4. 每步操作后用 `agent-browser snapshot -i` 确认元素 ref，因为页面状态变化可能导致 ref 编号变化 -->
 
 # Core Workflow
 1. 确认发布信息 调用 AskUserQuestion tool：目标平台（还是**添加新平台**）、内容类型、内容来源（文件路径/直接输入/ai 创作）、标题、话题标签
@@ -27,8 +27,9 @@ allowed-tools: Bash(agent-browser:*), Bash(jq:*), Bash(osascript:*) ,Read
 ## fix and verify Workflow
 网页交互可能发生变化，references 下面的 workflow 可能失效，按以下步骤修复：
 1. 运行 `agent-browser snapshot` 查看当前页面的详细元素
-2. 当查找失败，运行 `agent-browser eval "js"` 查看具体 html 元素
-3. 验证正确的交互路径后，编辑 references 下对应的 workflow 文件进行修正
+2. 对比 workflow 中的元素 ref 和当前页面的元素 ref，找到失效的步骤
+3. 当查找失败，运行 `agent-browser eval "js"` 查看具体 html 元素
+4. 验证正确的交互路径后，编辑 references 下对应的 workflow 文件进行修正
 
 ## 添加新的社交平台
 当用户询问需要新添加一个平台时候，按以下步骤添加：
