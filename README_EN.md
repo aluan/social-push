@@ -25,7 +25,7 @@ Communicates with Claude Code to understand user needs and dynamically generate 
 - 🔐 **Auto-Save Login State** - Uses `--state` parameter to persist sessions, login once and use forever
 - 👀 **Visual Operation** - Browser visible to users (`--headed` mode), easy debugging and monitoring
 - 🛡️ **Safe Design** - Only saves drafts, never auto-publishes, user confirms final posting
-- 🎯 **Multi-Platform Support** - Supports Xiaohongshu (images/articles), X/Twitter, easily extensible
+- 🎯 **Multi-Platform Support** - Supports Xiaohongshu (images/articles), Zhihu, Weibo, WeChat Official Account, Linux.do, easily extensible
 
 
 ## 🌐 Supported Platforms
@@ -34,9 +34,12 @@ Add a new platform in one sentence
 
 | Platform | Content Type | Status |
 |----------|--------------|--------|
-| Xiaohongshu | Image Post | ✅ |
-| Xiaohongshu | Article | ✅ |
-| X (Twitter) | Tweet | ✅ |
+| <img src="https://cdn.simpleicons.org/xiaohongshu/FF2442" alt="Xiaohongshu" width="20" height="20"/> Xiaohongshu | Image Post | ✅ |
+| <img src="https://cdn.simpleicons.org/xiaohongshu/FF2442" alt="Xiaohongshu" width="20" height="20"/> Xiaohongshu | Article | ✅ |
+| <img src="https://cdn.simpleicons.org/zhihu/0084FF" alt="Zhihu" width="20" height="20"/> Zhihu | Pin | ✅ |
+| <img src="https://cdn.simpleicons.org/sinaweibo/E6162D" alt="Weibo" width="20" height="20"/> Weibo | Post | ✅ |
+| <img src="https://cdn.simpleicons.org/wechat/07C160" alt="WeChat" width="20" height="20"/> WeChat Official Account | Article | ✅ |
+| <img src="https://cdn.simpleicons.org/discourse/000000" alt="Linux do" width="20" height="20"/> Linux do | Post | ✅ |
 
 more and more...
 
@@ -77,10 +80,16 @@ Modify the `# Rules` section in [SKILL.md](./social-push/SKILL.md) to customize 
 ```
 social-push/
 ├── SKILL.md                    # Skill definition file
+├── scripts/                    # Automation scripts directory
+│   ├── xiaohongshu-image.sh    # Xiaohongshu image post script
+│   ├── xiaohongshu-article.sh  # Xiaohongshu article script
+│   ├── weibo.sh                # Weibo post script
+│   └── weixin-article.sh       # WeChat Official Account article script
 └── references/
     ├── 小红书图文.md            # Xiaohongshu image post workflow
     ├── 小红书长文.md            # Xiaohongshu article workflow
-    ├── X推文.md                 # X/Twitter tweet workflow
+    ├── 微博.md                  # Weibo post workflow
+    ├── 微信公众号文章.md        # WeChat Official Account article workflow
     └── more...                  # More platforms to be added
 ```
 

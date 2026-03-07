@@ -54,17 +54,15 @@ disable-model-invocation: false
 - **参考**: [小红书图文](./references/小红书图文.md) - 图文发布 workflow（用于调试）
 - **参考**: [小红书长文](./references/小红书长文.md) - 长文发布 workflow（用于调试）
 
-## X (Twitter)
-- `X推文` ：查看[X推文](./references/X推文.md)发布推文时候需要的 workflow
-
 ## 微博 (Weibo)
-- `微博` ：查看[微博](./references/微博.md)发布微博时候需要的 workflow
+- **脚本**: [weibo.sh](./scripts/weibo.sh) - 微博发布自动化脚本
+  - 用法: `./scripts/weibo.sh <内容> <图片路径(可选)> <视频路径(可选)> [发布动作]`
+  - 发布动作: `publish` 立即发布, `skip` 跳过发布（默认）
+- **参考**: [微博](./references/微博.md) - 微博发布 workflow（用于调试）
 
 ## 微信公众号
-- `微信公众号文章` ：查看[微信公众号文章](./references/微信公众号文章.md)发布公众号文章时候需要的 workflow
+- **脚本**: [weixin-article.sh](./scripts/weixin-article.sh) - 公众号文章发布自动化脚本
+  - 用法: `./scripts/weixin-article.sh <标题> <内容> <封面图片路径> <摘要> [发布动作]`
+  - 发布动作: `draft` 保存草稿（默认）, `publish` 立即发布
+- **参考**: [微信公众号文章](./references/微信公众号文章.md) - 公众号文章发布 workflow（用于调试）
 
-## 掘金
-- `掘金文章` ：查看[掘金文章](./references/掘金文章.md)发布掘金文章并自动保存草稿的 workflow
-
-## Linux.do
-- `LinuxDo发帖` ：查看[LinuxDo发帖](./references/LinuxDo发帖.md)发布帖子（含类别与标签选择）的 workflow
