@@ -11,7 +11,7 @@ metadata:
 
 用户输入 $ARGUMENTS
 
-# Social-push Skill
+# social-push-skill Skill
 你需要使用 bash 运行自动化脚本，帮助用户将文章、图片上传到对应的社交平台上
 
 # Rules
