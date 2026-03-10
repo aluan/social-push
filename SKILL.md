@@ -1,7 +1,12 @@
 ---
 name: social-push-skill
 description: 使用 agent-browser 帮用户将内容发到社交媒体上。当用户需要发布内容、推送文章、上传文章、发帖到社交平台时使用此 skill。
-disable-model-invocation: false
+license: MIT
+metadata:
+  author: aluan
+  version: 0.1.0
+  requires:
+    - agent-browser
 ---
 
 用户输入 $ARGUMENTS
@@ -58,4 +63,3 @@ disable-model-invocation: false
   - 用法: `./scripts/weixin-article.sh <标题> <内容> <封面图片路径> <摘要> [发布动作]`
   - 发布动作: `draft` 保存草稿（默认）, `publish` 立即发布
 - **参考**: [微信公众号文章](./references/微信公众号文章.md) - 公众号文章发布 workflow（用于调试）
-
